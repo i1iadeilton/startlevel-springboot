@@ -1,0 +1,226 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+  font-family: Playfair Display;
+}
+
+header {
+  display: inline-flex;
+  padding: 2px 9px 10px;
+  width: 1500px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header-logo {
+  position: absolute;
+}
+
+.header-navigation {
+  padding-left: 500px;
+}
+
+.header-navigation ul {
+  list-style: none;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.header-navigation li {
+  float: left;
+  position: relative;
+  width: auto;
+}
+.header-navigation a {
+  color: black;
+  display: block;
+  font: 20px sans-serif;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 150px;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.header-navigation li:hover a {
+  background: lightgray;
+}
+
+#submenu {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 35px;
+  visibility: hidden;
+  z-index: 1;
+}
+li:hover ul#submenu {
+  opacity: 1;
+  top: 40px;
+  visibility: visible;
+}
+#submenu li {
+  float: none;
+  width: 100%;
+}
+#ferramentas{
+  width: 200px;
+}
+::-webkit-validation-bubble-arrow-clipper
+#submenu a:hover {
+  background: rgba(0, 0, 0, 0.288);
+}
+#submenu a {
+  background-color: black;
+  color: white;
+}
+
+.logo-gif {
+  top: 80px;
+  left: 467px;
+}
+
+.quem-somos {
+  display: inline-flex;
+  padding: 2px 88px 80px 20px;
+  width: 90%;
+  height: 455px;
+  top: 150px;
+}
+
+.globo-gif {
+  top: 46px;
+}
+
+.content {
+  width: 950px;
+  height: 388px;
+  top: 30px;
+  left: 60px;
+  text-align: justify;
+  gap: 50px;
+}
+
+h1,
+h2,
+h3 {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 400;
+  word-wrap: break-word;
+}
+
+.pilares-Start {
+  width: 1518px;
+  height: 410px;
+  flex-shrink: 0;
+  background: rgba(37, 77, 77, 0.2);
+}
+
+h2 {
+  top: 50px;
+}
+
+.ODS {
+  display: flex;
+  flex-direction: row;
+  top: 120px;
+}
+
+.img-ods {
+  margin-left: 150px;
+}
+
+.fonte {
+  width: 1518px;
+  text-align: right;
+  bottom: 8px;
+  right: 20px;
+  position: absolute;
+}
+
+.equipe {
+  height: 1230px;
+  flex-shrink: 0;
+  padding-top: 50px;
+}
+
+.general-person {
+  margin-top: 100px;
+}
+
+b {
+  color: #000;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  margin-top: 70px;
+  margin-left: 20px;
+  position: absolute;
+  width: 400px;
+}
+
+.funtions {
+  color: #0172cb;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.firsts-person {
+  margin-left: 107px;
+  /*margin-bottom: 30px;*/
+}
+
+.functionsAndcontact {
+  top: 125px;
+  margin-left: 275px;
+  position: absolute;
+}
+
+.contact {
+  margin-top: 20px;
+}
+
+.social-midia {
+  margin-left: 10px;
+  text-decoration: none;
+}
+
+.second-person {
+  margin-left: 680px;
+  margin-bottom: 30px;
+}
+
+footer {
+  width: 1518px;
+  height: 30px;
+  background-color: #565c61;
+  bottom: 0px;
+  position: absolute;
+}
+
+.breve-footer {
+  font-size: 16px;
+  top: 5px;
+  font-weight: 400;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.github{
+  margin-top: -15px;
+  margin-left: 930px;
+  position: absolute;
+}

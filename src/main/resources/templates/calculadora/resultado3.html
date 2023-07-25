@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Resultado da Calculadora</title>
+    <!-- cabeçalho, estilos, etc. (se necessário) -->
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-spacing: 8px; /* Espaçamento entre as células */
+        }
+
+        th, td {
+            padding: 12px; /* Espaçamento interno das células */
+            text-align: left;
+        }
+
+        thead {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados da Calculadora de Eficiência Energética</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Equipamento</th>
+                <th>Potência (W)</th>
+                <th>Horas Utilizadas</th>
+                <th>Dias Utilizados/Mês</th>
+                <th>Consumo Mensal (kWh)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Itera sobre a lista de calculadoras e exibe os resultados -->
+            <tr th:each="calculadora, itemIndex : ${calculadoras}">
+                <td th:text="${calculadora.equipamento}"></td>
+                <td th:text="${calculadora.potencia}"></td>
+                <td th:text="${calculadora.horas}"></td>
+                <td th:text="${calculadora.diasMes}"></td>
+                <td th:text="${calculadora.consumoMensal}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

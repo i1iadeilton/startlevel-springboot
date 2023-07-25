@@ -1,0 +1,298 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+  font-family: Playfair Display;
+}
+
+header {
+  display: inline-flex;
+  padding: 2px 9px 10px;
+  width: 1500px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.header-logo {
+  position: absolute;
+}
+
+.header-navigation {
+  margin-left: 500px;
+}
+
+.header-navigation ul {
+  list-style: none;
+  flex-wrap: wrap;
+}
+
+.header-navigation li {
+  float: left;
+  position: relative;
+}
+.header-navigation a {
+  color: black;
+  display: block;
+  font: 20px sans-serif;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 150px;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.header-navigation li:hover a {
+  background: lightgray;
+}
+
+#submenu {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 35px;
+  visibility: hidden;
+  z-index: 1;
+}
+li:hover ul#submenu {
+  opacity: 1;
+  top: 40px;
+  visibility: visible;
+}
+#submenu li {
+  float: none;
+  width: 100%;
+}
+#ferramentas{
+  width: 200px;
+}
+
+#submenu a:hover {
+  background: rgba(0, 0, 0, 0.288);
+}
+#submenu a {
+  background-color: black;
+  color: white;
+}
+
+.placaSolar {
+  top: 5px;
+}
+
+.containerAfirmativo {
+  width: 1050px;
+  height: 383px;
+  flex-shrink: 0;
+  background: linear-gradient(
+    91deg,
+    rgba(244, 246, 245, 0.8) 0%,
+    rgba(255, 255, 255, 0.8) 100%
+  );
+  margin-top: -550px;
+  margin-left: 300px;
+}
+
+#fraseAfirmativa {
+  display: flex;
+  width: 988px;
+  height: 222px;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: #000;
+  text-align: center;
+  font-family: Playfair Display;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  top: 110px;
+  margin-left: 31px;
+}
+
+.PorQueEconomizar {
+  display: inline-flex;
+  padding: 2px 88px 80px 20px;
+  width: 90%;
+  height: 667px;
+  top: 220px;
+}
+
+.content {
+  width: 900px;
+  height: 667px;
+  top: 30px;
+  margin-left: 60px;
+  text-align: justify;
+  gap: 50px;
+  word-wrap: break-word;
+}
+
+.engrenagemSustentavel {
+  right: 0px;
+  position: absolute;
+}
+
+.conviteFerramentas {
+  width: 1518px;
+  height: 700px;
+  flex-shrink: 0;
+  background: rgba(37, 77, 77, 0.2);
+  margin-top: 50px;
+}
+
+.equipeMotivacional {
+  top: 36px;
+  margin-left: 100px;
+}
+
+.conviteFerramentasConteudo {
+  width: 716px;
+  height: 500px;
+  top: 90px;
+  margin-left: 670px;
+  position: absolute;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+p {
+  font-size: 20px;
+  font-weight: 400;
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+button {
+  width: 348px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background: #0172cb;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding-top: 8px;
+  align-items: center;
+}
+
+button:hover {
+  background: #2196f3;
+  transition: all 0.25s ease;
+}
+
+.button {
+  display: inline-flex;
+  bottom: 80px;
+  right: 250px;
+  position: absolute;
+  padding: 10px 19px 22px 13px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 45px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
+
+
+.dicasQuePoupam {
+  top: 80px;
+  width: 1519px;
+  height: 700px;
+}
+
+.dicasEsquerda {
+  top: 60px;
+  margin-left: 190px;
+}
+b {
+  width: auto;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#junto {
+  margin-left: 10px;
+  top: 110px;
+}
+
+.aParte {
+  top: 120px;
+  margin-left: 50px;
+}
+
+.separado {
+  top: 110px;
+}
+
+.dicasEsquerda2 {
+  top: 250px;
+  margin-left: 180px;
+}
+
+.containerPicture {
+  display: flex;
+  width: 107px;
+  height: 41px;
+  flex-direction: column;
+  flex-shrink: 0;
+  color: #000;
+  font-family: Playfair Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.dicaMeio {
+  top: 200px;
+  margin-left: 640px;
+}
+
+.dicasDireita {
+  top: 0;
+  margin-left: 1100px;
+}
+
+.dicasDireita2 {
+  top: 180px;
+  margin-left: 1100px;
+}
+
+footer {
+  width: 1518px;
+  height: 30px;
+  background-color: #565c61;
+  bottom: -100px;
+  position: absolute;
+}
+
+.breve-footer {
+  font-size: 16px;
+  margin-top: 5px;
+  font-weight: 400;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.github{
+  margin-top: -20px;
+  margin-left: 930px;
+  position: absolute;
+}

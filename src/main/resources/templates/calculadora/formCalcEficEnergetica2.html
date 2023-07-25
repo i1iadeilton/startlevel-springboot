@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>
+    <title>Teste do Quem somos </title>
+    <link rel="icon" href="./multimidia/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=”description” content="A página é voltada para a conscientização do consumo de energia.">
+    <link rel="stylesheet" href="./style/styleCalcEficEnergetica2.css">
+  </head>
+  <body>
+    <header>
+      <nav class="header-container">
+        <div class="header-logo">
+          <picture>
+            <img src="./multimidia/logo.png" width=100px height="50px" alt="Logo Start Level">
+          </picture>
+        </div>
+        <nav class="header-navigation">
+          <ul>
+            <li>
+              <a href="./index2">Home</a>
+            </li>
+            <li>
+              <a href="#" id="ferramentas">Calculadoras </a>
+              <ul id="submenu">
+                <li>
+                  <a href="./CalcEficEnergetica">Eficiência energética</a>
+                </li>
+                <li>
+                  <a href="./CalcGastoEnergPAtivPraticada">Gasto energético por atividade praticada</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="./quemSomos">Quem somos</a>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+    </header>
+    <section>
+      <div class="content">
+        <h1>Calculadora de eficiência energética </h1>
+        <p> Após inserir os eletrônicos e suas respectivas características de uso, que tal repensar se é possível reduzir o tempo de uso diário e a quantidade de dias no mês? <strong> Pequenas mudanças podem gerar grandes economias e contribuir para um futuro mais sustentável. Juntos, podemos fazer a diferença!</strong>
+        </p>
+      </div>
+      <form id="linhaContainer">
+        <fieldset>
+          <select id="equipamento" class="row" autocomplete="off" required>
+            <option disabled selected value="">Equipamento</option>
+            <option value="Ar-condicionado7milBTUs">Ar-condicionado 7.000 BTUs</option>
+            <option value="Ar-condicionado7500BTUs">Ar-condicionado 7.500 BTUs</option>
+            <option value="Ar-condicionado10milBTUs">Ar-condicionado 10.000 BTUs</option>
+            <option value="Ar-condicionado12milBTUs">Ar-condicionado 12.000 BTUs</option>
+            <option value="AspiradorPo">Aspirador de pó residencial</option>
+            <option value="BatedeiraBolo">Batedeira de bolo</option>
+            <option value="CafeteiraElétrica">Cafeteira elétrica</option>
+            <option value="CarregadorBateria">Carregador de bateria</option>
+            <option value="ChuveiroEletrico">Chuveiro elétrico</option>
+            <option value="EquipamentoSom">Equipamento de som (3 em 1)</option>
+            <option value="EspremedorFrutas">Espremedor de frutas doméstico</option>
+            <option value="FerroPassarRoupas">Ferro elétrico de passar roupas</option>
+            <option value="FerroPassarRoupasAutomatico">Ferro elétrico automático de passar roupas</option>
+            <option value="FogaoAutomatico">Fogão comum com acendedor</option>
+            <option value="Micro-ondas">Forno micro-ondas</option>
+            <option value="FreezerHorizontal">Freezer horizontal 1 ou 2 portas</option>
+            <option value="Frigobar">Frigobar</option>
+            <option value="GeladeiraComum">Geladeira comum</option>
+            <option value="GeladeiraDuplex">Geladeira duplex 430 litros</option>
+            <option value="Gelagua">Gelágua</option>
+            <option value="Gril ">Gril</option>
+            <option value="HidromassagemAquecedor">Hidromassagem com aquecedor</option>
+            <option value="ImpressoraComum">Impressora comum</option>
+            <option value="ImpressoraLaser">Impressora a laser</option>
+            <option value="LampadaFluorescenteCompacta40W">Lâmpada fluorescente compacta 40W</option>
+            <option value="LampadaFluorescenteCompacta60W">Lâmpada fluorescente compacta 60W</option>
+            <option value="LampadaFluorescenteCompacta100W">Lâmpada fluorescente compacta 100W</option>
+            <option value="Liquidificador">Liquidificador</option>
+            <option value="MaquinaCostura">Máquina de costura</option>
+            <option value="MaquinaLavarPrato">Máquina de lavar louças</option>
+            <option value="MaquinaSecarRoupas">Máquina de secar roupas</option>
+            <option value="Microcomputador">Microcomputador</option>
+            <option value="MicrofornoEletrico">Microforno elétrico</option>
+            <option value="SecadorCabelo">Secador de cabelo</option>
+            <option value="Televisor26polegadas">Televisor LCD 26’’</option>
+            <option value="Televisor29polegadas">Televisor 29’’</option>
+            <option value="Televisor32polegadas">Televisor LCD 32’’</option>
+            <option value="Televisor40polegadas">Televisor LCD 40’’</option>
+            <option value="Televisor42polegadas">Televisor LCD 42’’</option>
+            <option value="Torradeira">Torradeira</option>
+            <option value="Ventilador">Ventilador</option>
+          </select>
+          <input type="number" placeholder="Tempo utilizado (em h)" id="horas" class="row" min="1" autocomplete="off" autofocus required>
+          <input type="number" min="1" max="31" placeholder="Nº de dias utilizados/mês" id="diasMes" class="row" autocomplete="off" required>
+          <br>
+          <button id="btnAdicionarLinha">+</button>
+          <button id="recalcular">  
+            <a href="./ResultCalcEficEnergetica.html">Recalcular</a>
+          </button>
+        </fieldset>
+        
+      </form>
+    </section>
+    <footer>
+      <p class="breve-footer" style="color: white;">Start Level 2023 | <strong>Development for Level up!</strong>
+      </p>
+      <a class="github" href="https://github.com/StartLevel">
+        <img src="./multimidia/contact/github.webp" width="18px" height="21px" alt="github">
+      </a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,163 @@
+* {
+  margin: 0%;
+  padding: 0%;
+  position: relative;
+  font-family: Playfair Display;
+}
+
+header {
+  display: inline-flex;
+  padding: 2px 9px 10px;
+  width: 1500px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
+    0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.header-logo {
+  position: absolute;
+}
+.header-navigation {
+  margin-left: 500px;
+}
+.header-navigation ul {
+  list-style: none;
+  flex-wrap: wrap;
+}
+.header-navigation li {
+  float: left;
+  position: relative;
+}
+.header-navigation a {
+  color: black;
+  display: block;
+  font: 20px sans-serif;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 150px;
+  -webkit-transition: all 0.25s ease;
+  -moz-transition: all 0.25s ease;
+  -ms-transition: all 0.25s ease;
+  -o-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.header-navigation li:hover a {
+  background: lightgray;
+}
+#submenu {
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 35px;
+  visibility: hidden;
+  z-index: 1;
+}
+li:hover ul#submenu {
+  opacity: 1;
+  top: 40px;
+  visibility: visible;
+}
+#submenu li {
+  float: none;
+  width: 100%;
+}
+#ferramentas {
+  width: 200px;
+}
+#submenu a:hover {
+  background: rgba(0, 0, 0, 0.288);
+}
+#submenu a {
+  background-color: black;
+  color: white;
+}
+
+.calcGastoEnergPAtivPraticada, .conclusiva{
+  height: auto;
+  background: rgba(0, 0, 0, 0.801); 
+}
+
+.ContentIMC {
+  display: flex;
+  flex-direction: row;
+  padding: 2% 3%;
+}
+
+.alinhandoLateralIMC{
+  margin-right: 2%;
+}
+
+.content{
+  width: 1300px;
+}
+h1{
+  padding-top: 78px;
+  font-family: Playfair Display;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: normal;
+  text-align: center;
+  color: white;
+  width: 1518px;
+}
+
+p {
+  color: white;
+  padding-bottom: 16px;
+  text-align: justify;
+  font-family: Playfair Display;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-indent: 2em;
+  left: 120px;
+}
+
+.result{
+  align-items: center;
+  text-align: center;
+  color: rgb(255, 244, 87);
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.paragrafos{
+  padding-top: 80px;
+}
+
+.paragrafoconclusivo{
+  width: 900px;
+  height: auto;
+  top:120px;
+  margin-left: 400px;
+  text-align: justify;
+  gap: 50px;
+  word-wrap: break-word;
+  position: absolute;
+}
+
+footer {
+  height: 30px;
+  background-color: #565c61;
+  bottom: 0px;
+  position: relative;
+}
+
+.breve-footer {
+  font-size: 16px;
+  top: 5px;
+  font-weight: 400;
+  word-wrap: break-word;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  left: 0;
+
+}
+
+.github{
+  margin-top: -15px;
+  right: 550px;
+  position: absolute;
+}
