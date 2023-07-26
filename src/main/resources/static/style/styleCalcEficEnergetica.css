@@ -176,9 +176,10 @@ select {
   text-decoration: none;
 
   bottom: -80px;
-  position: absolute;
+  left: 1150px;
+  position: relative;
   text-align: center;
-  align-items: center;
+  align-items: self-end;
   text-decoration: none;
 }
 a{
@@ -189,8 +190,9 @@ color: white;
 footer {
   height: 30px;
   background-color: #565c61;
-  bottom: 0px;
-  position: relative;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
 }
 
 .breve-footer {
