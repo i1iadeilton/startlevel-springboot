@@ -35,6 +35,7 @@ public class CalculadoraController {
 	private CalcFisicaRepository cr3;
 
 	
+
 	@PostMapping("/calculoAtividade")
     public String calcularAtividadeFisica(@RequestParam("genero") String genero,
                                               @RequestParam("peso") double peso,
@@ -43,18 +44,27 @@ public class CalculadoraController {
                                               @RequestParam("atividadeFisica") String atividadeFisica,
                                               Model model, CalcFisica calcfisica) {
        
-        double gastoCalorico = peso * calcularHoras(horas) * altura;
+		double imc = peso /(altura * altura);
+
+        double gastoCalorico = calcularHoras(horas) * imc;;
+        
+        String gastoTotalFormatted = String.format("%.3f", gastoCalorico);
         
         model.addAttribute("atividadeFisica", atividadeFisica);
         model.addAttribute("genero", genero);
         model.addAttribute("horas", horas);
         model.addAttribute("peso", peso);
         model.addAttribute("altura", altura);
-        model.addAttribute("gastoCalorico", gastoCalorico);
+        model.addAttribute("gastoCalorico", gastoTotalFormatted);
+        model.addAttribute("imc", imc);
 
+        cr3.save(calcfisica);
        
         return "calculadora/ResultCalcGastoEnergPAtivPraticada";
     }
+
+
+    
 	
 	
 	
@@ -65,13 +75,22 @@ public class CalculadoraController {
 
 		List<Calculadora2> calculadoras = new ArrayList<>();
 
+		double potenciaTotal = 0;
+		double consumoTotal = 0;
+		double consumoMensalD = 0;
 		for (int i = 0; i < equipamentos.size(); i++) {
 			String equipamento = equipamentos.get(i);
 			double potencia = potencias.get(i);
 			String hora = horas.get(i);
 			int diaMes = diasMes.get(i);
+			
+			
+			potenciaTotal += potencias.get(i);
+			
 
 			double consumoMensal = (potencia * 0.001) * calcularHoras(hora) * diaMes * 0.89;
+			
+			consumoTotal += consumoMensal;
 
 			Calculadora2 calculadora = new Calculadora2();
 			calculadora.setEquipamento(equipamento);
@@ -81,8 +100,13 @@ public class CalculadoraController {
 			calculadora.setConsumoMensal(consumoMensal);
 
 			calculadoras.add(calculadora);
+			cr2.save(calculadora);
 		}
+		String potenciaTotalFormatted = String.format("%.2f", potenciaTotal);
+        String consumoTotalFormatted = String.format("%.2f", consumoTotal);
 
+		model.addAttribute("potenciaTotal", potenciaTotalFormatted);
+	    model.addAttribute("consumoTotal", consumoTotalFormatted);
 		model.addAttribute("calculadoras", calculadoras);
 		return "calculadora/resultado3";
     }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" >
 <head>
-<title>Teste do Quem somos </title>
+<title>Calculadora Ef.Energetica </title>
 <link rel="icon" href="./multimidia/logo.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,11 +17,24 @@
             padding: 0;
         }
         
+        
+        
 
         /* Estilo para o campo de entrada de número */
         input[type="number"] {
             width: 100px;
         }
+        
+         /* Estilo para o resultado em tempo real */
+        .resultado-energia {
+			width: 25%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+            }
     </style>
     
 </head>
@@ -139,11 +152,12 @@
 				
 				
 			<button id="calcular" type="submit">Calcular</button>	
+			
 		</form>
-		<div>
-
-
-		</div>
+		
+		<div id="resultadoEficiencia" class="resultado-energia">Consumo total: 0 Wh</div>
+		<canvas id="graficoEficiencia"></canvas>
+		
 	</section>
 	<footer>
 		<p class="breve-footer" style="color: white;">Start Level 2023 | <strong>Development for Level up!</strong>
@@ -153,6 +167,8 @@
 		</a>
 	</footer>
 
+
+	<script src="./js/chart.min.js"></script>
 	<script>
         function addFields() {
             var wrapper = document.querySelector(".input-fields-wrapper");
@@ -220,7 +236,47 @@
             var newDiv = document.createElement("div");
             newDiv.innerHTML = newFields;
             wrapper.appendChild(newDiv);
+            
+            // Adicionar eventos de input para o novo formulário
+            const newInputFields = newDiv.querySelectorAll("input");
+            newInputFields.forEach((input) => {
+                input.addEventListener("input", calcularEficiencia);
+            });
         }
+        
+        
+          function calcularEficiencia() {
+            const form = document.getElementById("linhaContainer");
+            const fields = form.querySelectorAll(".input-fields-wrapper fieldset");
+
+            let totalConsumo = 0;
+
+            fields.forEach((fieldset) => {
+                const potencia = parseFloat(
+                    fieldset.querySelector('input[name="potencia"]').value
+                );
+                const horas = parseFloat(
+                    fieldset.querySelector('input[name="horas"]').value
+                );
+                const diasMes = parseFloat(
+                    fieldset.querySelector('input[name="diasMes"]').value
+                );
+
+                if (!isNaN(potencia) && !isNaN(horas) && !isNaN(diasMes)) {
+                    const consumoEquipamento = potencia * horas * diasMes;
+                    totalConsumo += consumoEquipamento;
+                }
+            });
+
+            const resultado = document.getElementById("resultadoEficiencia");
+            resultado.textContent = `Consumo total: ${totalConsumo.toFixed(2)} Wh`;
+        }
+
+        // Adicionando os eventos de input para calcular a eficiência em tempo real
+        const inputFields = document.querySelectorAll(".input-fields-wrapper input");
+        inputFields.forEach((input) => {
+            input.addEventListener("input", calcularEficiencia);
+        });
     </script>
 
 

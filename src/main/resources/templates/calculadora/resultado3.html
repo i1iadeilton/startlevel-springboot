@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Resultado da Calculadora</title>
-    <!-- cabeçalho, estilos, etc. (se necessário) -->
+     <title>Seus Resultados </title>
+    <link rel="icon" href="./multimidia/logo.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=”description” content="A página é voltada para a conscientização do consumo de energia.">
+    <link rel="stylesheet" href="./style/styleResultCalcEficEnergetica.css">
     <style>
         table {
             border-collapse: collapse;
-            width: 100%;
+            width: 50%;
             border-spacing: 8px; /* Espaçamento entre as células */
+            left: 400px;
         }
 
         th, td {
@@ -22,10 +27,61 @@
         tr:nth-child(even) {
             background-color: #f2f2f2;
         }
+        
+        
     </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
 </head>
 <body>
-    <h1>Resultados da Calculadora de Eficiência Energética</h1>
+	
+	
+	
+	
+	 <header>
+      <nav class="header-container">
+         <div class="header-logo">
+          <picture><img src="./multimidia/logo.png" width=100px height="50px" alt="Logo Start Level">
+          </picture>
+        </div>
+        <nav class="header-navigation">
+          <ul>
+            <li>
+              <a href="./index2">Home</a>
+            </li>
+            <li>
+              <a href="#" id="ferramentas">Calculadoras </a>
+              <ul id="submenu">
+                <li>
+                  <a href="./CalcEficEnergetica">Eficiência energética</a>
+                </li>
+                <li>
+                  <a href="./CalcGastoEnergPAtivPraticada">Gasto energético por atividade praticada</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="./quemSomos">Quem somos</a>
+            </li>
+          </ul>
+        </nav>
+      </nav>
+     
+   
+
+      
+      
+      
+        
+
+
+    </header>
+    
+     
+    
+    <div class="resultos">
+      <h2>Resultado por equipamento</h2>
     <table>
         <thead>
             <tr>
@@ -33,7 +89,7 @@
                 <th>Potência (W)</th>
                 <th>Horas Utilizadas</th>
                 <th>Dias Utilizados/Mês</th>
-                <th>Consumo Mensal (kWh)</th>
+                <th>Valor diario (R$)</th>
             </tr>
         </thead>
         <tbody>
@@ -44,8 +100,119 @@
                 <td th:text="${calculadora.horas}"></td>
                 <td th:text="${calculadora.diasMes}"></td>
                 <td th:text="${calculadora.consumoMensal}"></td>
+                
+            </tr>
+        </tbody>
+      
+    </table>
+    
+    <h2>Resultado de todos equipamentos juntos</h2>
+     <table>
+        <thead>
+            <tr>
+                <th>Potência Total (W)</th>
+                <th>Valor diario Total (R$)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td th:text="${potenciaTotal}"></td>
+                <td th:text="${consumoTotal}"></td>
             </tr>
         </tbody>
     </table>
+    
+      <div style="width: 80%; margin: auto;">
+    <canvas id="meuGrafico"></canvas>
+  </div>
+    
+    <section id="tabela">
+      <div class="content">
+        <h1>Calculadora de eficiência energética </h1>
+        <p>Prepare-se para se surpreender com a compilação dos resultados abaixo!</p>
+        
+        
+      </div>
+      
+       <!-- 
+        <button id="change-chart">Change to Classic</button>
+    <br><br> -->
+    
+    <div id="chart_div" style="width: 200px; height: 400px;"></div>
+   
+    </section>
+    <section class="EquipamentoKwhTempo">
+      <h2>Confira na tabela abaixo os equipamentos que apresentam maior consumo de energia, expresso em kWh por tempo de uso, no gráfico a seguir:</h2>
+      <picture class="GraficoEquipamentos">
+        <img src="./multimidia/Ferramentas/EquipamentoKwhTempo.svg" width=830px height="562px" alt="Consumo dos equipamentos em kwh por tempo de uso">
+      </picture>
+      <p class="fonte">Fonte: www.eletrobras.com</p>
+    </section>
+  
+    
+   
+    
+      <footer>
+      <p class="breve-footer" >Start Level 2023 | <strong>Development for Level up!</strong>
+      </p>
+      <a class="github" href="https://github.com/StartLevel">
+        <img src="./multimidia/contact/github.webp" width="18px" height="21px" alt="github">
+      </a>
+    </footer>
+    
+    
+   <script type="text/javascript">
+  // Supondo que você tenha os dados dos equipamentos em um array chamado 'equipamentos', onde cada elemento é um objeto com as informações relevantes para cada equipamento
+  var equipamentos = [
+    {
+      equipamento: 'Equipamento 1',
+      valores: [20, 30, 40, 50, 60], // Valores para cada mês (Janeiro, Fevereiro, Março, Abril, Maio) do primeiro equipamento
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1
+    },
+    {
+      equipamento: 'Equipamento 2',
+      valores: [10, 15, 25, 35, 40], // Valores para cada mês (Janeiro, Fevereiro, Março, Abril, Maio) do segundo equipamento
+      backgroundColor: 'rgba(54, 162, 235, 0.5)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1
+    },
+    // E assim por diante...
+  ];
+
+  var data = {
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
+    datasets: equipamentos.map(function(equipamento) {
+      return {
+        label: equipamento.equipamento,
+        data: equipamento.valores,
+        backgroundColor: equipamento.backgroundColor,
+        borderColor: equipamento.borderColor,
+        borderWidth: equipamento.borderWidth
+      };
+    })
+  };
+
+  // Configurações do gráfico
+  var options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  };
+
+  // Criação do gráfico
+  var ctx = document.getElementById('meuGrafico').getContext('2d');
+  var myChart = new Chart(ctx, {
+    type: 'bar', // Tipo de gráfico (pode ser 'line', 'bar', 'radar', 'pie', etc.)
+    data: data,
+    options: options
+  });
+</script>
+
 </body>
 </html>

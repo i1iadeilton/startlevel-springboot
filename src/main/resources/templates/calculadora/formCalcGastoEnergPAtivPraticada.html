@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en" >
   <head>
-    <title>Teste do Quem somos </title>
+    <title>Calculadora At.Fisica </title>
     <link rel="icon" href="./multimidia/logo.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -48,6 +48,7 @@
 
     
       <form id="linhaContainer" action="/calculoAtividade" method="POST">
+        <div class="input-fields-wrapper">
         <fieldset>
           <select id="genero" name="genero" class="row" autocomplete="off" autofocus  required>
             <option disabled selected value="">Sexo biológico</option>
@@ -87,9 +88,11 @@
           </select>
           <input type="time" name="horas" placeholder="Tempo (em h)" id="horas" class="row" min="0" autocomplete="off" required>
   
-          <button id="btnAdicionarLinha">+</button>
-          <button id="calcular" type="submit">Calcular</button>
+          <button id="btnAdicionarLinha" type="button" onclick="addFields()">+</button>
+         
         </fieldset>
+        </div>
+         <button id="calcular" type="submit">Calcular</button>
       </form> 
     </section>
     <section class="AjudaPreenchimento">
@@ -110,5 +113,50 @@
         <img src="./multimidia/contact/github.webp" width="18px" height="21px" alt="github">
       </a>
     </footer>
+    
+    <script>
+        function addFields() {
+            var wrapper = document.querySelector(".input-fields-wrapper");
+            var newFields = `
+               <fieldset>
+          
+
+          <select id="atividadeFisica" name="atividadeFisica" class="row" autocomplete="off" required>
+            <option disabled selected value="">Atividade física - intensidade</option>
+            <option value="Aerobico2">Aeróbico - moderada</option>
+            <option value="Aerobico3">Aeróbico - intensa</option>
+            <option value="AtivDomestica1">Atividade doméstica - leve</option>
+            <option value="AtivDomestica2">Atividade doméstica  - moderada</option>
+            <option value="AtivDomestica3">Atividade doméstica  - intensa</option>
+            <option value="Basquete">Basquete - moderada</option>
+            <option value="Caminhada1">Caminhada - leve</option>
+            <option value="Caminhada2">Caminhada - moderada</option>
+            <option value="Caminhada3">Caminhada - intensa</option>
+            <option value="Corrida1">Corrida - leve</option>
+            <option value="Corrida2">Corrida - moderada</option>
+            <option value="Corrida3">Corrida - intensa</option>
+            <option value="Ciclismo1">Ciclismo - leve</option>
+            <option value="Ciclismo2">Ciclismo - moderada</option>
+            <option value="Ciclismo3">Ciclismo - intensa</option>
+            <option value="Diversos1">Diversos - leve</option>
+            <option value="Diversos2">Diversos  - moderada</option>
+            <option value="Diversos3">Diversos  - intensa</option>
+            <option value="Futebol">Futebol - moderada</option>
+            <option value="Inatividade">Inatividade - leve</option>
+            <option value="LevPeso">Levantamento de peso - moderada</option>
+            <option value="Natacao1">Natação - leve</option>
+            <option value="Natacao2">Natação - moderada</option>
+            <option value="Natacao3">Natação - intensa</option>
+            <option value="Tenis">Tênis - moderada</option>
+          </select>
+          <input type="time" name="horas" placeholder="Tempo (em h)" id="horas" class="row" min="0" autocomplete="off" required>
+						
+			</fieldset>`;
+            var newDiv = document.createElement("div");
+            newDiv.innerHTML = newFields;
+            wrapper.appendChild(newDiv);
+        }
+    </script>
+    
   </body>
 </html>
