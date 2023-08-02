@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name=”description” content="A página é voltada para a conscientização do consumo de energia.">
 <link rel="stylesheet" href="./style/styleCalcEficEnergetica.css">
+     
     
 </head>
 
@@ -23,20 +24,15 @@
 					<li>
 						<a href="/">Home</a>
 					</li>
-					<li>
-						<a href="#" id="ferramentas">Calculadoras </a>
-						<ul id="submenu">
-							<li>
-								<a href="./CalcEficEnergetica">Eficiência energética</a>
-							</li>
-							
-						</ul>
-					</li>
+						<li>
+							<a href="./CalcEficEnergetica">Eficiência energética</a>
+						</li>
 					<li>
 						<a href="./quemSomos">Quem somos</a>
 					</li>
 				</ul>
 			</nav>
+		</nav>
 		</nav>
 	</header>
 	<section class="calcEficienciaEenergetica">
@@ -142,7 +138,7 @@
         function addFields() {
             var wrapper = document.querySelector(".input-fields-wrapper");
             var newFields = `
-                <fieldset>
+                <fieldset class="linhaContainer">
 						<select name="equipamento" value="" class="row" autocomplete="off" autofocus required>
 							<option disabled selected value="">Equipamento</option>
 							<option value="Ar-condicionado7milBTUs">Ar-condicionado 7.000 BTUs</option>
@@ -199,7 +195,7 @@
 							class="row" autocomplete="off" required>
 						
 							
-						
+					 <button type="button" onclick="removeFields(this)">Remover</button>	
 					
 				</fieldset>`;
             var newDiv = document.createElement("div");
@@ -246,6 +242,13 @@
         inputFields.forEach((input) => {
             input.addEventListener("input", calcularEficiencia);
         });
+        
+      function removeFields(button) {
+    var fieldset = button.parentNode; // Obtem o elemento "fieldset" que será removido
+    var wrapper = fieldset.parentNode; // Obtem o elemento "div" que contém o "fieldset"
+    wrapper.removeChild(fieldset); // Remove o "fieldset" do "wrapper"
+    calcularEficiencia(); // Recalcula a eficiência após a remoção do formulário
+}
     </script>
 
 
