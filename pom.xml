@@ -57,6 +57,12 @@
 			<scope>compile</scope>
 		</dependency>
 		
+		<dependency>
+    <groupId>org.webjars.npm</groupId>
+    <artifactId>chart.js</artifactId>
+    <version>3.5.1</version>
+</dependency>
+		
 	</dependencies>
 
 	<build>

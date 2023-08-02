@@ -3,12 +3,14 @@
   padding: 0%;
   position: relative;
   font-family: Playfair Display;
+  
 }
 
 header {
   display: inline-flex;
   padding: 2px 9px 10px;
-  width: 1518px;
+  padding-right: 0;
+  width: 1510px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25),
     0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
@@ -48,45 +50,17 @@ header {
   background: lightgray;
 }
 
-#submenu {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 35px;
-  visibility: hidden;
-  z-index: 1;
-}
-li:hover ul#submenu {
-  opacity: 1;
-  top: 40px;
-  visibility: visible;
-}
-#submenu li {
-  float: none;
-  width: 100%;
-}
-#ferramentas {
-  width: 200px;
-}
-
-#submenu a:hover {
-  background: rgba(0, 0, 0, 0.288);
-}
-#submenu a {
-  background-color: black;
-  color: white;
-}
-
 .calcEficienciaEenergetica {
-  background: rgba(130, 10, 209, 0.5);
-  height: 668px;
-  width: 1536px;
+  background: rgb(85, 159, 17, 0.2);
+  width: 1518px;
   margin: 0;
+  padding-bottom:0 px;
 }
 
 .content {
   width: 1300px;
   left: 120px;
+  margin-bottom: 70px;
 }
 
 h1 {
@@ -97,6 +71,10 @@ h1 {
   font-weight: 800;
   line-height: normal;
   text-align: center;
+}
+
+.recuo{
+  text-indent: 2em;
 }
 
 p {
@@ -117,7 +95,7 @@ fieldset {
   height: auto;
   flex-shrink: 0;
   left: 15%;
-  margin-top: 6%;
+  margin-top: 12px;
   border: none;
 }
 .row {
@@ -129,18 +107,32 @@ fieldset {
 input,
 select {
   display: flex;
-
   height: 26px;
   padding: 12px;
   align-items: center;
   margin-right: 5%;
   border-radius: 4px;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: 1.5px solid lightgray;
 }
 
 select {
   height: 50px;
   font-size: 14px;
+}
+
+input[type="number"], [type="time"] {
+	width: 150px;
+}
+
+ /* Estilo para o resultado em tempo real */
+.resultado-energia {
+	width: 25%;
+	background-color: #f1f1f1;
+	padding: 10px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	margin-top: 40px;
 }
 
 #btnAdicionarLinha {
@@ -166,7 +158,7 @@ select {
   flex-shrink: 0;
   border-radius: 8px;
   border: none;
-  background: #009929;
+  background: #0172cb;
   color: white;
   font-size: 16px;
   font-style: normal;
@@ -174,12 +166,11 @@ select {
   line-height: 20px;
   letter-spacing: 0.1px;
   text-decoration: none;
-
-  bottom: -80px;
+  bottom: -140px;
   left: 1150px;
-  position: relative;
+  position: absolute;
   text-align: center;
-  align-items: self-end;
+  align-items: center;
   text-decoration: none;
 }
 a{
@@ -191,8 +182,10 @@ footer {
   height: 30px;
   background-color: #565c61;
   bottom: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 .breve-footer {

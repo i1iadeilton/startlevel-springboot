@@ -48,35 +48,6 @@ header {
   background: lightgray;
 }
 
-#submenu {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 35px;
-  visibility: hidden;
-  z-index: 1;
-}
-li:hover ul#submenu {
-  opacity: 1;
-  top: 40px;
-  visibility: visible;
-}
-#submenu li {
-  float: none;
-  width: 100%;
-}
-#ferramentas{
-  width: 200px;
-}
-
-#submenu a:hover {
-  background: rgba(0, 0, 0, 0.288);
-}
-#submenu a {
-  background-color: black;
-  color: white;
-}
-
 .placaSolar {
   top: 5px;
 }
@@ -111,6 +82,10 @@ li:hover ul#submenu {
   margin-left: 31px;
 }
 
+.recuo{
+  text-indent: 2em;
+}
+
 .PorQueEconomizar {
   display: inline-flex;
   padding: 2px 88px 80px 20px;
@@ -136,9 +111,9 @@ li:hover ul#submenu {
 
 .conviteFerramentas {
   width: 1518px;
-  height: 700px;
+  height: 580px;
   flex-shrink: 0;
-  background: rgba(37, 77, 77, 0.2);
+  background: rgba(85, 159, 17, 0.2);
   margin-top: 50px;
 }
 
@@ -150,7 +125,7 @@ li:hover ul#submenu {
 .conviteFerramentasConteudo {
   width: 716px;
   height: 500px;
-  top: 90px;
+  top: 60px;
   margin-left: 670px;
   position: absolute;
 }
@@ -172,8 +147,8 @@ p {
 }
 
 button {
-  width: 348px;
-  height: 40px;
+  width: 300px;
+  height: 45px;
   border-radius: 10px;
   border: none;
   background: #0172cb;
@@ -185,7 +160,7 @@ button {
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  padding-top: 8px;
+  padding-top: 10px;
   align-items: center;
 }
 

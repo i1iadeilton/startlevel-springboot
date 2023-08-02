@@ -66,7 +66,7 @@ public class CalculadoraController {
 		}
 		String potenciaTotalFormatted = String.format("%.2f", potenciaTotal);
         String consumoTotalFormatted = String.format("%.2f", consumoTotal);
-
+ 
 		model.addAttribute("potenciaTotal", potenciaTotalFormatted);
 	    model.addAttribute("consumoTotal", consumoTotalFormatted);
 		model.addAttribute("calculadoras", calculadoras);

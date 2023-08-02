@@ -50,38 +50,18 @@ header {
   background: lightgray;
 }
 
-#submenu {
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  top: 35px;
-  visibility: hidden;
-  z-index: 1;
-}
-li:hover ul#submenu {
-  opacity: 1;
-  top: 40px;
-  visibility: visible;
-}
-#submenu li {
-  float: none;
-  width: 100%;
-}
-#ferramentas{
-  width: 200px;
-}
 ::-webkit-validation-bubble-arrow-clipper
 #submenu a:hover {
   background: rgba(0, 0, 0, 0.288);
 }
-#submenu a {
-  background-color: black;
-  color: white;
-}
 
 .logo-gif {
   top: 80px;
-  left: 467px;
+  left: 650px;
+}
+
+.recuo{
+  text-indent: 2em;
 }
 
 .quem-somos {
@@ -123,7 +103,7 @@ p {
   width: 1518px;
   height: 410px;
   flex-shrink: 0;
-  background: rgba(37, 77, 77, 0.2);
+background: rgb(85, 159, 17, 0.2);
 }
 
 h2 {

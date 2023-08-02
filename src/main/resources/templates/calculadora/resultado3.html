@@ -31,7 +31,9 @@
         
     </style>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="./Chart.min.js"></script>
+
+
     
 </head>
 <body>
@@ -80,7 +82,7 @@
     
     <div class="resultos">
       <h2>Resultado por equipamento</h2>
-    <table>
+    <table id="tabelaCalculadoras">
         <thead>
             <tr>
                 <th>Equipamento</th>
@@ -120,25 +122,23 @@
         </tbody>
     </table>
     
-      <div style="width: 80%; margin: auto;">
-    <canvas id="meuGrafico"></canvas>
-  </div>
-    
-    <section id="tabela">
-      <div class="content">
-        <h1>Calculadora de eficiência energética </h1>
-        <p>Prepare-se para se surpreender com a compilação dos resultados abaixo!</p>
-        
-        
-      </div>
-      
-       <!-- 
-        <button id="change-chart">Change to Classic</button>
-    <br><br> -->
-    
-    <div id="chart_div" style="width: 200px; height: 400px;"></div>
    
-    </section>
+
+   
+    
+  <section id="tabela">
+    <div class="content">
+        <h1>Calculadora de eficiência energética</h1>
+        <p>Prepare-se para se surpreender com a compilação dos resultados abaixo!</p>
+    </div>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <canvas id="myChart"></canvas>
+    </div>
+</section>
+    
+    
+    
+    
     <section class="EquipamentoKwhTempo">
       <h2>Confira na tabela abaixo os equipamentos que apresentam maior consumo de energia, expresso em kWh por tempo de uso, no gráfico a seguir:</h2>
       <picture class="GraficoEquipamentos">
@@ -159,58 +159,81 @@
     </footer>
     
     
-   <script type="text/javascript">
-  // Supondo que você tenha os dados dos equipamentos em um array chamado 'equipamentos', onde cada elemento é um objeto com as informações relevantes para cada equipamento
-  var equipamentos = [
-    {
-      equipamento: 'Equipamento 1',
-      valores: [20, 30, 40, 50, 60], // Valores para cada mês (Janeiro, Fevereiro, Março, Abril, Maio) do primeiro equipamento
-      backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      borderColor: 'rgba(255, 99, 132, 1)',
-      borderWidth: 1
-    },
-    {
-      equipamento: 'Equipamento 2',
-      valores: [10, 15, 25, 35, 40], // Valores para cada mês (Janeiro, Fevereiro, Março, Abril, Maio) do segundo equipamento
-      backgroundColor: 'rgba(54, 162, 235, 0.5)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 1
-    },
-    // E assim por diante...
-  ];
+  <script th:inline="javascript">
+       // Obtém a tabela pelo id
+    const tabela = document.getElementById('tabelaCalculadoras');
 
-  var data = {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio'],
-    datasets: equipamentos.map(function(equipamento) {
-      return {
-        label: equipamento.equipamento,
-        data: equipamento.valores,
-        backgroundColor: equipamento.backgroundColor,
-        borderColor: equipamento.borderColor,
-        borderWidth: equipamento.borderWidth
-      };
-    })
-  };
+    // Cria um array para armazenar os dados
+    const dataArray = [];
 
-  // Configurações do gráfico
-  var options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      y: {
-        beginAtZero: true
-      }
+    // Itera pelas linhas da tabela (ignorando o cabeçalho)
+    for (let i = 1; i < tabela.rows.length; i++) {
+        const row = tabela.rows[i];
+        
+        // Extrai os valores das células e adiciona ao array
+        const equipamento = row.cells[0].innerText;
+        const potencia = parseFloat(row.cells[1].innerText);
+        const horas = parseFloat(row.cells[2].innerText);
+        const diasMes = parseFloat(row.cells[3].innerText);
+        const consumoMensal = parseFloat(row.cells[4].innerText);
+
+        // Cria um objeto com os dados da calculadora
+        const calculadora = {
+            equipamento,
+            potencia,
+            horas,
+            diasMes,
+            consumoMensal
+        };
+
+        // Adiciona o objeto ao array
+        dataArray.push(calculadora);
     }
-  };
+    
+    
+    // Cria arrays para armazenar os nomes dos equipamentos e seus consumos mensais
+const nomesEquipamentos = [];
+const consumosMensais = [];
 
-  // Criação do gráfico
-  var ctx = document.getElementById('meuGrafico').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'bar', // Tipo de gráfico (pode ser 'line', 'bar', 'radar', 'pie', etc.)
-    data: data,
-    options: options
-  });
-</script>
+// Percorre o array dataArray
+for (const calculadora of dataArray) {
+    // Extrai o nome do equipamento e o consumo mensal e adiciona aos arrays correspondentes
+    nomesEquipamentos.push(calculadora.equipamento);
+    consumosMensais.push(calculadora.consumoMensal);
+}
+
+
+
+
+  /* Configurações do gráfico */
+        var data = {
+            labels: nomesEquipamentos,
+            datasets: [
+                {
+                    label: 'Consumo Mensal',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 1,
+                    data: consumosMensais
+                }
+            ]
+        };
+
+        var options = {
+            responsive: true,
+            maintainAspectRatio: false
+        };
+
+        /* Renderiza o gráfico */
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: options
+        });
+    
+    
+    </script>
 
 </body>
 </html>
